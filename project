@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<p>Click the button to add a new row at the first position of the table and then add cells and content.</p>
+<input type="button" id="btnAdd" value="Add Text Field">
+<table id="myTable">
+  <tr>
+    <td>Row1 cell1</td>
+    
+  </tr>
+  <tr>
+    <td>Row2 cell1</td>
+   
+  </tr>
+  <tr>
+    <td>Row3 cell1</td>
+    
+  </tr>
+</table>
+<br>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="fooBar">Fields:</p>
+
+<script>
+function myFunction() {
+/*  var table = document.getElementById("myTable");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  
+  cell1.innerHTML = "NEW CELL1";
+  var button=document.createElement("button");*/
+  
+  
+  function add(type) {
+  var table = document.getElementById("myTable");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  
+  cell1.innerHTML = "NEW CELL1";
+  
+  //var button=document.createElement("button");
+  //Create an input type dynamically.   
+  var element = document.createElement("button");
+  //Assign different attributes to the element. 
+  element.type = type;
+  element.value = type; // Really? You want the default value to be the type string?
+  element.name = type; // And the name too?
+  element.onclick = function() { // Note this is a function
+    alert("blabla");
+  };
+
+  var foo = document.getElementById("fooBar");
+  //Append the element in page (in span).  
+  foo.appendChild(element);
+}
+document.getElementById("btnAdd").onclick = function() {
+  add("text");
+};
+
+}
+</script>
+
+</body>
+</html>
+
